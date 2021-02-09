@@ -16,4 +16,5 @@ class User(AbstractUser):
     def save(self, *args, **kwargs):
         if self.user_type in (self.UserTypes.ADMIN, self.UserTypes.NEWLYWED):
             self.is_staff = True
+            self.admin = True
         return super().save(*args, **kwargs)
